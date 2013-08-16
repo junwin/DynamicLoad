@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLoad", "DynamicLoad\DynamicLoad.csproj", "{AD9F3593-8C52-4B1E-86DF-1111ED26B7AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicLoadTest", "DynamicLoadTest\DynamicLoadTest.csproj", "{AD779FCD-62FF-4135-B9EB-1FD40AD18062}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplePlugIn", "SamplePlugIn\SamplePlugIn.csproj", "{D4987E86-FB3A-4988-8688-A66929B00F37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD9F3593-8C52-4B1E-86DF-1111ED26B7AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD9F3593-8C52-4B1E-86DF-1111ED26B7AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD9F3593-8C52-4B1E-86DF-1111ED26B7AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD9F3593-8C52-4B1E-86DF-1111ED26B7AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD779FCD-62FF-4135-B9EB-1FD40AD18062}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD779FCD-62FF-4135-B9EB-1FD40AD18062}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD779FCD-62FF-4135-B9EB-1FD40AD18062}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD779FCD-62FF-4135-B9EB-1FD40AD18062}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4987E86-FB3A-4988-8688-A66929B00F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4987E86-FB3A-4988-8688-A66929B00F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4987E86-FB3A-4988-8688-A66929B00F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4987E86-FB3A-4988-8688-A66929B00F37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
