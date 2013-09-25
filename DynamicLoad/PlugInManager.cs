@@ -11,7 +11,10 @@ namespace DynamicLoad
     public class PlugInManager : IPlugInManager
     {
         private static volatile PlugInManager s_instance;
+
         private static object s_Token = new object();
+
+        private string _binPath = "";
         /// <summary>
         /// Logger
         /// </summary>
@@ -41,6 +44,7 @@ namespace DynamicLoad
         protected PlugInManager()
         {
             _plugIns = new Dictionary<string, IPlugin>();
+            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(MyResolveEventHandler);
         }
 
         public void AddPlugIn(string uid, IPlugin plugIn)
@@ -214,6 +218,40 @@ namespace DynamicLoad
                 _plugInLog.Error("DynamicLoad:" + myPath);
                 return null;
             }
+        }
+
+        /// <summary>
+        /// Called if we need to resolve some dependancy
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        private System.Reflection.Assembly MyResolveEventHandler(object sender, ResolveEventArgs args)
+        {
+            System.Reflection.Assembly assy4 = null;
+            try
+            {
+                // attempt to load from the binpath or the requesting assmebly path
+                string[] assyDef = args.Name.Split(',');
+                string[] reqAssyDef = args.RequestingAssembly.FullName.Split(',');
+                int reqDllNamePos = args.RequestingAssembly.Location.IndexOf(reqAssyDef[0]);
+                string reqDllPath = args.RequestingAssembly.Location.Substring(0, reqDllNamePos - 1);
+                string DllPath = "";
+                if (_binPath.Length > 0)
+                {
+                    DllPath = _binPath + @"\" + assyDef[0] + ".dll";
+                }
+                else
+                {
+                    DllPath = reqDllPath + @"\" + assyDef[0] + ".dll";
+                }
+
+                assy4 = System.Reflection.Assembly.LoadFrom(DllPath);
+            }
+            catch
+            {
+            }
+            return assy4;
         }
 
         public IPlugin GetPlugIn(string uid, string name)
